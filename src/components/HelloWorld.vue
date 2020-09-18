@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p @click="clicked">{{ title }}</p>
   </div>
 </template>
 
@@ -9,6 +10,19 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      title: "Check me",
+    };
+  },
+  methods: {
+    check() {
+      this.checked = !this.checked;
+    },
+    clicked() {
+      alert(this.title);
+    },
   },
 };
 </script>

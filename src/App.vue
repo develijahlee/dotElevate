@@ -1,31 +1,56 @@
 <template>
   <div id="app">
     <nav id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <div class="logo">
+        <router-link to="/">.elevate</router-link>
+      </div>
+      <div>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+      </div>
     </nav>
     <router-view />
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "./styles.scss";
+@font-face {
+  font-family: "pixeboy";
+  src: url("./assets/pixeboy.ttf") format("truetype");
+}
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  font-family: "pixeboy", Helvetica, Arial, sans-serif;
+  font-size: calc(1rem + 1vw);
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5rem;
+  @include xs {
+    font-size: calc(2rem + 2vw);
+  }
 }
 
 #nav {
-  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+  @include md {
+    justify-content: space-around;
+  }
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    padding: 0.5em;
+    color: #fff;
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 0.5em;
     }
   }
 }
