@@ -11,7 +11,7 @@ export default {
   noGames: true,
   data() {
     return {
-      game1: "Coming Soon",
+      game1: "Coming Soon!!!!",
       game2: "Awesome Game",
       noGames: true,
     };
