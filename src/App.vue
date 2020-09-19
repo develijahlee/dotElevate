@@ -19,8 +19,11 @@
   font-family: "pixeboy";
   src: url("./assets/pixeboy.ttf") format("truetype");
 }
+html {
+  height: 100%;
+}
 body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #7c5ed6, #0077a3, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   font-family: "pixeboy", Helvetica, Arial, sans-serif;
@@ -28,14 +31,12 @@ body {
   text-align: center;
   color: #fff;
 }
-
 .logo {
   font-size: 1.5rem;
   @include xs {
     font-size: calc(2rem + 2vw);
   }
 }
-
 #nav {
   display: flex;
   justify-content: space-between;
@@ -44,7 +45,6 @@ body {
   @include md {
     justify-content: space-around;
   }
-
   a {
     padding: 0.5em;
     color: #fff;
