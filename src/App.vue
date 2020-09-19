@@ -10,6 +10,9 @@
       </div>
     </nav>
     <router-view />
+    <footer>
+      © dotElevate
+    </footer>
   </div>
 </template>
 
@@ -28,8 +31,8 @@ body {
   animation: gradient 15s ease infinite;
   font-family: "pixeboy", Helvetica, Arial, sans-serif;
   font-size: calc(1rem + 1vw);
-  text-align: center;
   color: #fff;
+  text-align: center;
 }
 .logo {
   font-size: 1.5rem;

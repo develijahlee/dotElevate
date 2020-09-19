@@ -1,20 +1,19 @@
 <template>
-  <div id="test" class="home">
+  <div class="home">
     <p>{{ name }}</p>
     <img alt="invader" src="../assets/invader.png" class="invader" />
     <h2>Our Games</h2>
-    <HelloWorld msg=".elevate" />
+    <Showcase />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Showcase from "@/components/Showcase.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    Showcase,
   },
 };
 </script>
