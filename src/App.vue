@@ -57,4 +57,7 @@ body {
     }
   }
 }
+footer {
+  margin-top: 2em;
+}
 </style>

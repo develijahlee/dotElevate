@@ -11,7 +11,6 @@
       :key="game.id"
       :class="{ hideGame: game.hide }"
       :href="game.link"
-      target="_blank"
       >{{ game.name }}</a
     >
     <button
@@ -68,18 +67,20 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.5em;
   a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4em;
+    width: 3em;
     padding: 2em 1em;
     font-size: calc(2rem + 2vw);
     border: 10px solid #fff;
     color: #fff;
     text-decoration: none;
     text-align: center;
+    @include md {
+      width: 4em;
+    }
   }
   button {
     outline: 0;
