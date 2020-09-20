@@ -1,24 +1,62 @@
 <template>
   <div class="showcase-container">
-    <button v-bind:class="{ leftArrow: noGames }">test</button>
-    <a href="#">{{ game1 }}</a>
-    <button>test</button>
+    <button
+      @click="showRightArrow"
+      :class="[{ hideArrow: hideLeftArrow }, 'arrowBtn']"
+    >
+      <img alt="left arrow" src="../assets/leftArrow.svg" class="arrow" />
+    </button>
+    <a
+      v-for="game in games"
+      :key="game.id"
+      :class="{ hideGame: game.hide }"
+      :href="game.link"
+      target="_blank"
+      >{{ game.name }}</a
+    >
+    <button
+      @click="showLeftArrow"
+      :class="[{ hideArrow: hideRightArrow }, 'arrowBtn']"
+    >
+      <img alt="right arrow" src="../assets/rightArrow.svg" class="arrow" />
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  noGames: true,
   data() {
     return {
-      game1: "Coming Soon!!!!",
-      game2: "Awesome Game",
-      noGames: true,
+      games: [
+        {
+          name: "Tryangle",
+          link: "#",
+          id: 1,
+          hide: false,
+        },
+        {
+          name: "BagRPG",
+          link: "#",
+          id: 2,
+          hide: true,
+        },
+      ],
+      hideLeftArrow: true,
+      hideRightArrow: false,
     };
   },
   methods: {
-    showGame() {
-      alert(this.game1);
+    showLeftArrow() {
+      this.hideLeftArrow = !this.hideLeftArrow;
+      this.hideRightArrow = !this.hideRightArrow;
+      this.games[0].hide = true;
+      this.games[1].hide = false;
+    },
+    showRightArrow() {
+      this.hideLeftArrow = !this.hideLeftArrow;
+      this.hideRightArrow = !this.hideRightArrow;
+      this.games[0].hide = false;
+      this.games[1].hide = true;
     },
   },
 };
@@ -35,6 +73,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 4em;
     padding: 2em 1em;
     font-size: calc(2rem + 2vw);
     border: 10px solid #fff;
@@ -46,8 +85,25 @@ export default {
     outline: 0;
     cursor: pointer;
   }
-}
-.leftArrow {
-  visibility: hidden;
+  .hideArrow {
+    visibility: hidden;
+  }
+  .arrowBtn {
+    margin: 0 1em;
+    background: none;
+    border: 0;
+    @include md {
+      margin: 0 2em;
+    }
+    > img {
+      width: 2em;
+      @include md {
+        width: 4em;
+      }
+    }
+  }
+  .hideGame {
+    display: none;
+  }
 }
 </style>
